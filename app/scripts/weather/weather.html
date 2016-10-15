@@ -1,0 +1,34 @@
+<ion-view view-title="Current Forecast" hide-back-button="true" class="weather">
+  <ion-content>
+    <div class="list">
+      <a class="item item-positive item-icon-left" href="#">
+        <i class="icon ion-android-locate"></i>
+        Geolocation Permission
+        <span class="badge badge-balanced"  ng-show="c.isPermission">Allowed</span>
+        <span class="badge badge-assertive"  ng-show="!c.isPermission">Denied</span>
+      </a>
+
+      <form class="padding" ng-submit="c.getWeatherByCity()" name="getWeather" ng-show="c.isPermissionReached">
+        <label class="item item-input item-floating-label"> <span class="input-label">Enter City Name</span> <input type="text" placeholder="Enter City Name" ng-model="c.cityName" required> </label>
+        <button class="button icon-right ion-navigate button-full button-positive" ng-disabled="getWeather.$invalid">Fetch Weather</button>
+      </form>
+
+      <div class="list padding" ng-show="c.isWeatherFetched">
+        <div class="item item-divider item-assertive weatherDataPopup" ng-show="c.isGeolocationData">
+          This data from Geolocation, Can fetch weather by City too
+        </div>
+        <div class="item item-avatar">
+          <img src="../assets/images/avatar.png">
+          <h2>{{c.weatherData.name}}</h2>
+          <p><span class="badge badge-assertive">{{c.weatherData.main.temp}} F</span></p>
+          <div class="padding">
+            <p>Min: {{c.weatherData.main.temp_min}} F</p>
+            <p>Max: {{c.weatherData.main.temp_max}} F</p>
+            <p>Humidity: {{c.weatherData.main.humidity}} %</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

@@ -1,0 +1,21 @@
+
+.container {
+}
+.weather {
+	display: block;
+	background-size: cover;
+	background-color: $stable;
+	background-position: center center;
+	max-width: 400px;
+
+	.list {
+		.list {
+			.weatherDataPopup {
+				font-size: x-small !important;
+				padding-top: 0px;
+				padding-bottom: 0px;
+				min-height: 20px;
+			}
+		}
+	}
+}
